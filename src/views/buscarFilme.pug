@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title CineLista - Buscar
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 🔍 Buscar Filmes
+    
+    form(action="/api/cinema/get" method="GET")
+      input(type="text" name="buscarFilme" placeholder="Digite o nome do filme..." required)
+      button(type="submit") Pesquisar
+
+    if movie
+      h2 Resultados encontrados:
+      ul
+        each f in movie
+          li(style="margin-bottom: 15px;")
+            strong= f.nomeFilme 
+            |  (#{f.lancamento}) - Diretor: #{f.diretor}
+            br
+            div(style="display: flex; gap: 10px; margin-top: 5px;")
+              // Link para a tela de edição completa (PUT)
+              a(href=`/api/cinema/editar/${f.id}`) 📝 Editar
+              
+              // Botão de Delete com method-override
+              form(action=`/api/cinema/delete/${f.id}?_method=DELETE` method="POST" onsubmit="return confirm('Deseja mesmo excluir este filme?')")
+                button(type="submit" style="color: red; background: none; border: 1px solid red; cursor: pointer;") 🗑️ Excluir
+    else
+      p ❌ Nenhum filme encontrado para essa busca.
+
+    br
+    hr
+    a(href="/api/cinema/all") ⬅️ Voltar para a lista completa

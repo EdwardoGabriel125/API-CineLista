@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title CineLista - Editar Filme
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 ✍️ Editar Filme
+
+    form(action=`/api/cinema/editar/${filme.id}?_method=PUT` method="POST")
+      div
+        label(for="nomeFilme") Título do Filme:
+        input(type="text" id="nomeFilme" name="nomeFilme" value=filme.nomeFilme required)
+      
+      div
+        label(for="lancamento") Ano de Lançamento:
+        input(type="number" id="lancamento" name="lancamento" value=filme.lancamento min="1895" required)
+      
+      div
+        label(for="diretor") Diretor:
+        input(type="text" id="diretor" name="diretor" value=filme.diretor required)
+      
+      // Campo escondido se precisar enviar o ID ou alguma info extra
+      input(type="hidden" name="id" value=filme.id)
+
+      div
+        button(type="submit") Atualizar Filme
+    
+    br
+    a(href="/api/cinema/all") ❌ Cancelar e Voltar

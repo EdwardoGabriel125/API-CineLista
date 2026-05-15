@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title CineLista - Deletar Conta
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 🗑️ Deletar Conta
+    
+    p Essa ação é irreversível. Tem certeza que deseja deletar sua conta?
+    
+    form(action=`/api/user/delete?_method=DELETE` method="POST")
+      div
+        label(for="nome") Nome:
+        input(type="text" id="nome" name="nome" placeholder="Confirme seu nome" required)
+      
+      div
+        label(for="senha") Senha:
+        input(type="password" id="senha" name="senha" placeholder="Confirme sua senha" required)
+      
+      div
+        button(type="submit" style="background-color: red; color: white;") Deletar Minha Conta
+    
+    p Já tem uma conta? 
+      a(href="/api/user/login") Faça login aqui.
+    p Não tem conta? 
+      a(href="/api/user/register") Cadastre-se aqui.
+    p Lista de Filmes (página inicial) 
+      a(href="/api/cinema/all") Lista de Filmes

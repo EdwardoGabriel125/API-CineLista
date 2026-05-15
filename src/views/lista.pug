@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title CineLista
+    link(rel="stylesheet", href="/css/style.css") 
+  body
+    h1 🎬 Coleção de Filmes
+      if usuario != ""
+        p Bem-vindo, #{usuario}!
+        a(href="/api/user/logout") 🚪 Sair (Logout)
+      else
+        a(href="/api/user/login") 🔑 Entrar
+
+    br
+
+    a(href="/api/cinema/novo") ➕ Cadastrar Novo Filme
+    a(href="/api/cinema/buscar") 🔎 Buscar filme
+    
+    br
+
+    if filmes && filmes.length > 0
+      table(border="1")
+        thead
+          tr
+            th Usuário
+            th Título
+            th Lançamento
+            th Diretor
+            th Ações
+        tbody
+          each filme in filmes
+            tr
+              td= filme.nomeUser
+              td= filme.nomeFilme
+              td= filme.lancamento
+              td= filme.diretor
+              if usuario === filme.nomeUser
+                td
+                  div(style="display: flex; gap: 10px;")
+                    a(href=`/api/cinema/editar/${filme.id}`) 📝 Editar
+                  
+                    form(action=`/api/cinema/delete/${filme.id}?_method=DELETE` method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este filme?')")
+                      button(type="submit" style="color: red; cursor: pointer;") 🗑️ Excluir
+    else
+      p Nenhum filme cadastrado ainda.
+    
+    br

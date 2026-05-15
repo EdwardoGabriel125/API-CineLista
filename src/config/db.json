@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "1778518331328",
+      "nome": "Eduardo",
+      "senha": "oi1234"
+    },
+    {
+      "id": "1778518357775",
+      "nome": "Rodolfo",
+      "senha": "oi1234"
+    },
+    {
+      "id": "1778518402417",
+      "nome": "Ronaldo",
+      "senha": "oi1234"
+    },
+    {
+      "id": "1778518425213",
+      "nome": "Ronald",
+      "senha": "oi1234"
+    }
+  ],
+  "movies": [
+    {
+      "idUser": "1778518331328",
+      "nomeUser": "Eduardo",
+      "id": 2,
+      "nomeFilme": "M",
+      "lancamento": "1923",
+      "diretor": "Fritz Lang"
+    },
+    {
+      "idUser": "1778518331328",
+      "nomeUser": "Eduardo",
+      "id": 3,
+      "nomeFilme": "No Country For Oldmen",
+      "lancamento": "2007",
+      "diretor": "Coen Brothers"
+    }
+  ]
+}

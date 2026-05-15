@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title CineLista - Login
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 🔑 Login
+    
+    // Supondo que sua rota seja /api/users/login
+    form(action="/api/user/login" method="POST")
+      div
+        label(for="nome") Nome:
+        input(type="text" id="nome" name="nome" required)
+      
+      div
+        label(for="senha") Senha:
+        input(type="password" id="senha" name="senha" required)
+      
+      div
+        button(type="submit") Entrar
+    
+    p Não tem conta? 
+      a(href="/api/user/register") Cadastre-se aqui.
+    p Quer excluir uma conta?
+      a(href="/api/user/delete") Excluir conta
+    p Lista de Filmes (página inicial)
+      a(href="/api/cinema/all") Lista de Filmes
+

@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title CineLista - Cadastrar Filme
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 🎬 Cadastrar Novo Filme
+    
+    form(action="/api/cinema/logmovie" method="POST")
+      div
+        label(for="nomeFilme") Título do Filme:
+        input(type="text" id="nomeFilme" name="nomeFilme" required)
+      
+      div
+        label(for="lancamento") Ano de Lançamento:
+        input(type="number" id="lancamento" name="lancamento" min="1895" required)
+      
+      div
+        label(for="diretor") Diretor:
+        input(type="text" id="diretor" name="diretor" required)
+      
+      div
+        button(type="submit") Salvar Filme
+    
+    br
+    a(href="/api/cinema/all") ⬅️ Voltar para a lista

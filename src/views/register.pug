@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title CineLista - Criar Conta
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    h1 👤 Criar Nova Conta
+    
+    form(action="/api/user/register" method="POST")
+      div
+        label(for="nome") Nome de Usuário:
+        input(type="text" id="nome" name="nome" required)
+      
+      div
+        label(for="senha") Senha (mínimo 4 caracteres):
+        input(type="password" id="senha" name="senha" required)
+      
+      div
+        button(type="submit") Cadastrar
+    
+    p Já tem uma conta? 
+      a(href="/api/user/login") Faça login aqui.
+    p Quer excluir uma conta?
+      a(href="/api/user/delete") Excluir conta
+    p Lista de Filmes (página inicial)
+      a(href="/api/cinema/all") Lista de Filmes
